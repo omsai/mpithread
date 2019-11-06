@@ -15,10 +15,10 @@ int main() {
 	   MPI_THREAD_SERIALIZED,
 	   MPI_THREAD_MULTIPLE);
 
-    MPI_Init_thread(0, 0, MPI_THREAD_MULTIPLE, &provided );
-    MPI_Query_thread( &claimed );
-        printf( "Query thread level = %d\n Init_thread level = %d\n",
-		claimed, provided );
+    MPI_Init_thread(0, 0, MPI_THREAD_MULTIPLE, &provided);
+    MPI_Query_thread(&claimed);
+        printf("Query thread level = %d\n Init_thread level = %d\n",
+		claimed, provided);
 
     MPI_Finalize();
 }
