@@ -6,3 +6,6 @@ executable('thread_level',
 executable('ping_pong',
 	   'ping_pong.c',
 	   dependencies : libmpi)
+executable('hostnames',
+	   'hostnames.c',
+	   dependencies : libmpi)
