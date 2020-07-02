@@ -59,7 +59,7 @@ int main (int argc, char *argv[]) {
     printf("%d:  %d  -> '%c' status: %s\n", rank, src, imsg, str_stat);
 
     omsg += 2;
-    printf("%d: '%c' -> %d\n", rank, omsg, src);
+    printf("%d: '%c' ->  %d\n", rank, omsg, src);
     rc = MPI_Send(&omsg, 1, MPI_CHAR, dst, tag, MPI_COMM_WORLD);
     assert(rc == 0);
   } else {
