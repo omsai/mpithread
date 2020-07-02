@@ -21,4 +21,6 @@ int main() {
 		claimed, provided);
 
     MPI_Finalize();
+
+    return 0;
 }
