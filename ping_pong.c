@@ -37,10 +37,13 @@ int main (int argc, char *argv[]) {
   if (rank == 0) {
     dst = 1;
     src = 1;
+
     omsg += 1;
     printf("%d: '%c' ->  %d\n", rank, omsg, dst);
     rc = MPI_Send(&omsg, 1, MPI_CHAR, dst, tag, MPI_COMM_WORLD);
     assert(rc == 0);
+
+    printf("%d: Waiting for %d\n", rank, src);
     rc = MPI_Recv(&imsg, 1, MPI_CHAR, src, tag, MPI_COMM_WORLD, &stat);
     assert(rc == 0);
     str(stat, str_stat);
@@ -48,10 +51,13 @@ int main (int argc, char *argv[]) {
   } else if (rank == 1) {
     dst = 0;
     src = 0;
+
+    printf("%d: Waiting for %d\n", rank, src);
     rc = MPI_Recv(&imsg, 1, MPI_CHAR, src, tag, MPI_COMM_WORLD, &stat);
     assert(rc == 0);
     str(stat, str_stat);
     printf("%d:  %d  -> '%c' status: %s\n", rank, src, imsg, str_stat);
+
     omsg += 2;
     printf("%d: '%c' -> %d\n", rank, omsg, src);
     rc = MPI_Send(&omsg, 1, MPI_CHAR, dst, tag, MPI_COMM_WORLD);
