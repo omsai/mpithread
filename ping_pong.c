@@ -7,14 +7,10 @@
 void str(MPI_Status stat, char* str_stat) {
   sprintf(str_stat,
 	  "{ "
-	  "count_lo : %d, "
-	  "count_hi_and_cancelled : %d, "
 	  "SOURCE : %d, "
 	  "TAG : %d, "
 	  "ERROR : %d "
 	  "}",
-	  stat.count_lo,
-	  stat.count_hi_and_cancelled,
 	  stat.MPI_SOURCE,
 	  stat.MPI_TAG,
 	  stat.MPI_ERROR);
