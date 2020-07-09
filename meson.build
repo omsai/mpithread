@@ -5,6 +5,7 @@ libmpi = dependency('mpich', required : false)
 if not libmpi.found()
   libmpi = dependency('mpi')
 endif
+libopenmp = dependency('openmp')
 executable('thread_level',
 	   'thread_level.c',
 	   dependencies : libmpi)
@@ -14,3 +15,6 @@ executable('ping_pong',
 executable('hostnames',
 	   'hostnames.c',
 	   dependencies : libmpi)
+executable('openmp',
+	   'openmp.c',
+	   dependencies : [libmpi, libopenmp])
