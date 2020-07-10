@@ -1,0 +1,1 @@
+srun="srun --mpi @srun_mpi@ --partition debug"
