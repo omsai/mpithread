@@ -8,6 +8,7 @@ Compiling the examples uses the `meson` build system available from
 the python package repository.
 
     python3 -m pip install --user --upgrade meson ninja
+    PATH=$HOME/.local/bin:$PATH
 
 # Compiling
 
